@@ -1,0 +1,76 @@
+
+@import url('https://fonts.googleapis.com/css?family=Manjari&display=swap');
+
+.App {
+  text-align: center;
+  font-family: 'Manjari', sans-serif;
+}
+
+body{
+  background: #E6ECF0;
+}
+
+li {
+  display:flex;
+  align-items: flex-start;
+  justify-content: left;
+  list-style: none;
+  padding:2%;
+  background: #ffffff;
+  border-bottom: 1px solid rgb(196, 196, 196);
+  /* box-shadow: -1px 1px 2px #827d7d; */
+
+}
+
+.data-res{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.op-bar{
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 2%;
+}
+
+.hdr-ctr{
+  background: black;
+  color: white;
+  /* height: 5%; */
+  padding: 10px;
+  margin-bottom: 2%;
+}
+
+.dateTime{
+  align-self: auto;
+}
+
+
+.usr-info{
+  text-align: left;
+  margin-left: 5px;
+}
+
+.usr-name{
+  font-weight: bolder;
+}
+
+.usr-usrname, .dateTime{
+  color: #96A3AD;
+}
+
+.res-count-ctr{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.res-hide{
+  display: none;
+}
+
+.res-count{
+  border-radius: 4px;
+  padding: 1px 8px 0px 8px;
+  background: #d0d2d4;
+  margin: 5px 5px 0px 5px;
+}
