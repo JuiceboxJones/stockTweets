@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/stockTweets/static/css/main.110b7dca.chunk.css",
-    "main.js": "/stockTweets/static/js/main.0465d502.chunk.js",
-    "main.js.map": "/stockTweets/static/js/main.0465d502.chunk.js.map",
+    "main.css": "/stockTweets/static/css/main.8f7c64f8.chunk.css",
+    "main.js": "/stockTweets/static/js/main.47941904.chunk.js",
+    "main.js.map": "/stockTweets/static/js/main.47941904.chunk.js.map",
     "runtime~main.js": "/stockTweets/static/js/runtime~main.e5a7a724.js",
     "runtime~main.js.map": "/stockTweets/static/js/runtime~main.e5a7a724.js.map",
-    "static/js/2.35d135a3.chunk.js": "/stockTweets/static/js/2.35d135a3.chunk.js",
-    "static/js/2.35d135a3.chunk.js.map": "/stockTweets/static/js/2.35d135a3.chunk.js.map",
+    "static/js/2.8a41f862.chunk.js": "/stockTweets/static/js/2.8a41f862.chunk.js",
+    "static/js/2.8a41f862.chunk.js.map": "/stockTweets/static/js/2.8a41f862.chunk.js.map",
     "index.html": "/stockTweets/index.html",
-    "precache-manifest.e5ed2a51e637eacc964bd9cebb299968.js": "/stockTweets/precache-manifest.e5ed2a51e637eacc964bd9cebb299968.js",
+    "precache-manifest.2dd64619c6b6b6e9c4828387750f0913.js": "/stockTweets/precache-manifest.2dd64619c6b6b6e9c4828387750f0913.js",
     "service-worker.js": "/stockTweets/service-worker.js",
-    "static/css/main.110b7dca.chunk.css.map": "/stockTweets/static/css/main.110b7dca.chunk.css.map",
+    "static/css/main.8f7c64f8.chunk.css.map": "/stockTweets/static/css/main.8f7c64f8.chunk.css.map",
     "static/media/logo.svg": "/stockTweets/static/media/logo.5d5d9eef.svg"
   }
 }
