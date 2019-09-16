@@ -68,7 +68,6 @@ class Options extends Component {
   //Set the state locally and send to the parent for page re-render and content update
 
   handleState = (results, tag) => {
-    console.log(results, tag)
     history.push(results);
     if (!results) {
       this.setState(this.baseState);
@@ -100,7 +99,7 @@ class Options extends Component {
   };
 
   render() {
-    console.log(this.state.resCount)
+
     //User input introduces errors, used a searchable select.
     //It is scalable and more options could be added without problems.
 
