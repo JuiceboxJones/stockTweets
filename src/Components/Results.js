@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
+import Linkify from 'react-linkify';
+import './Results.css'
 
 let dat = [];
 
@@ -30,7 +32,7 @@ class Results extends Component {
             <span className="usr-usrname">{` @${item.user.username} `}</span>
             <span className="dateTime">{event.toString()}</span>
             <div className="post-cont">
-              <p>{item.body}</p>
+              <Linkify>{item.body}</Linkify>
             </div>
           </div>
         </li>

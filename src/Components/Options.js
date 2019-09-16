@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import Results from './Results';
+import './Options.css'
 
 let history = [];
 
@@ -50,9 +51,10 @@ class Options extends Component {
 
   getResults(params, index) {
     this.setState(this.baseState);
-    let url = `https://api.stocktwits.com/api/2/streams/symbol/${params}.json`;
+    let url = `https://cors-anywhere.herokuapp.com/https://api.stocktwits.com/api/2/streams/symbol/${params}.json`;
     return fetch(url, {
-      method: 'GET'
+      method: 'GET',
+      dataType: 'jsonp'
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
@@ -90,7 +92,10 @@ class Options extends Component {
       { value: 'AAPL', label: 'AAPL' },
       { value: 'BABA', label: 'BABA' },
       { value: 'BAC', label: 'BAC' },
-      { value: 'BLDP', label: 'BLDP' }
+      { value: 'BLDP', label: 'BLDP' },
+      { value: 'INTC', label: 'INTC' },
+      { value: 'GOOGL', label: 'GOOGL' },
+      { value: 'TSLA', label: 'TSLA' },
     ];
 
     return (
@@ -116,6 +121,16 @@ class Options extends Component {
             </div>
             <div className={s.BLDP ? 'res-count' : 'res-hide'}>
               {!s.BLDP ? '' : `BLDP (${s.BLDP})`}
+            </div>
+
+            <div className={s.INTC ? 'res-count' : 'res-hide'}>
+              {!s.INTC ? '' : `INTC (${s.INTC})`}
+            </div>
+            <div className={s.GOOGL ? 'res-count' : 'res-hide'}>
+              {!s.GOOGL ? '' : `GOOGL (${s.GOOGL})`}
+            </div>
+            <div className={s.TSLA ? 'res-count' : 'res-hide'}>
+              {!s.TSLA ? '' : `TSLA (${s.TSLA})`}
             </div>
           </div>
         </div>

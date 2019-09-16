@@ -1,15 +1,20 @@
 {
+  "homepage": "https://juiceboxjones.github.io/stockTweets",
   "name": "stocktwits-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "javascript-time-ago": "^2.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-linkify": "^1.0.0-alpha",
     "react-scripts": "3.1.1",
     "react-select": "^3.0.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
