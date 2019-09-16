@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 import Results from './Results';
 import './Options.css'
 
@@ -39,7 +40,11 @@ class Options extends Component {
       history = [];
       e.forEach(item =>
         this.getResults(item.value).then(data =>
-          this.handleState(data.messages, data.symbol.symbol)
+          (data.messages ? 
+            this.handleState(data.messages, data.symbol.symbol) : 
+            this.setState({
+              resCount: { [item.value]: data.statusText, ...this.state.resCount }
+            }))
         )
       );
     } else {
@@ -56,13 +61,14 @@ class Options extends Component {
       method: 'GET',
       dataType: 'jsonp'
     }).then(res =>
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+      !res.ok ? res : res.json()
     );
   }
 
   //Set the state locally and send to the parent for page re-render and content update
 
   handleState = (results, tag) => {
+    console.log(results, tag)
     history.push(results);
     if (!results) {
       this.setState(this.baseState);
@@ -76,6 +82,17 @@ class Options extends Component {
     }
   };
 
+  handleResCount = () => {
+    let s = this.state.resCount;
+    return Object.keys(s).length>0 ? Object.entries(s).map((item, index) => {
+      return(
+        <div className='res-count'>
+          {`${item[0]} ( ${item[1]} )`}
+        </div>
+      )
+    }) : ''
+  }
+
   //function for communicating with parent
 
   sendData = res => {
@@ -83,8 +100,7 @@ class Options extends Component {
   };
 
   render() {
-    let s = this.state.resCount;
-
+    console.log(this.state.resCount)
     //User input introduces errors, used a searchable select.
     //It is scalable and more options could be added without problems.
 
@@ -98,40 +114,25 @@ class Options extends Component {
       { value: 'TSLA', label: 'TSLA' },
     ];
 
+    const components = {
+      DropdownIndicator: null,
+    };
+
     return (
       <div className="op-ctr">
         <div className="op-bar">
-          <Select
+          <CreatableSelect
             isMulti
             name="options"
+            components={components}
             options={options}
             className="basic-multi-select"
             classNamePrefix="select"
             onChange={e => this.handleAddValues(e)}
+            placeholder="Click to select from below or type something and press enter..."
           />
           <div className="res-count-ctr">
-            <div className={s.AAPL ? 'res-count' : 'res-hide'}>
-              {!s.AAPL ? '' : `AAPL (${s.AAPL})`}
-            </div>
-            <div className={s.BABA ? 'res-count' : 'res-hide'}>
-              {!s.BABA ? '' : `BABA (${s.BABA})`}
-            </div>
-            <div className={s.BAC ? 'res-count' : 'res-hide'}>
-              {!s.BAC ? '' : `BAC (${s.BAC})`}
-            </div>
-            <div className={s.BLDP ? 'res-count' : 'res-hide'}>
-              {!s.BLDP ? '' : `BLDP (${s.BLDP})`}
-            </div>
-
-            <div className={s.INTC ? 'res-count' : 'res-hide'}>
-              {!s.INTC ? '' : `INTC (${s.INTC})`}
-            </div>
-            <div className={s.GOOGL ? 'res-count' : 'res-hide'}>
-              {!s.GOOGL ? '' : `GOOGL (${s.GOOGL})`}
-            </div>
-            <div className={s.TSLA ? 'res-count' : 'res-hide'}>
-              {!s.TSLA ? '' : `TSLA (${s.TSLA})`}
-            </div>
+          {this.handleResCount()}
           </div>
         </div>
         <div className="data-res">
